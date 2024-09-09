@@ -1,0 +1,14 @@
+crm(customer relation management)
+technologies: Django framework and mysql database
+
+create another virtual envornment -> install django
+install mysql client library: pip install mysql
+install connecter: pip install mysql-connector-python
+install mysql : MySQL is a relational database management system (RDBMS) used to store and manage data in a structured format. 
+                It allows you to create, read, update, and delete data using SQL (Structured Query Language).
+created app called website
+
+Go to settings.py and configure
+change database setting 
+create mydb.py file for connectivity 
+
