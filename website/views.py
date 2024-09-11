@@ -4,7 +4,7 @@ from django.contrib import messages #notify login log out message // messages fr
 from .forms import SignUpForm,AddRecordForm
 from .models import Record
 # Create your views here.
-
+# wqeqw
 def home(request):
     #record
     records = Record.objects.all()
