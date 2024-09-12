@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('',views.home, name='home'),
-    # path('login/',views.login_user, name="login"), #Adding login in home page so,....
     path('logout/',views.logout_user, name="logout"),
     path('register/',views.register_user, name="register"),
     path('record/<int:pk>', views.customer_record,name='record'), #localhost:800/record/2 <--- pk
