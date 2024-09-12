@@ -40,7 +40,7 @@
 </div>
 
 <br/><br/>
-  
+{% if customer_record.user == user %}
   <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
     Delete
   </button>
@@ -64,10 +64,7 @@
        </div>
      </div>
    </div>
-  
   <a href="{% url 'update_record' customer_record.id %}" class="btn btn-secondary">Update Record</a>
-  
+{% endif %}
   <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
-
-{{ Customer_record}}
 {% endblock  %}

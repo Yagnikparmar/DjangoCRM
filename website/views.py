@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages #notify login log out message // messages framework
 from .forms import SignUpForm,AddRecordForm
@@ -57,7 +57,7 @@ def customer_record(request,pk):
         return redirect('home')
 
 def delete_record(request, pk):
-    record = get_object_or_404(Record, id=pk)
+    # record = get_object_or_404(Record, id=pk)
 
     if request.user.is_authenticated:
         delete_it = Record.objects.get(id=pk)
@@ -66,21 +66,36 @@ def delete_record(request, pk):
         return redirect('home')
     else:
         messages.success(request, "You Must Be Logged In To Do That...")
-        return redirect('home')
+        return redirect('home') 
+ 
+# def add_record(request):
+# 	form = AddRecordForm(request.POST or None)
+# 	if request.user.is_authenticated:
+# 		if request.method == "POST":
+# 			if form.is_valid():
+# 				add_record = form.save()
+# 				messages.success(request, "Record Added...")
+# 				return redirect('home')
+# 		return render(request, 'add_record.html', {'form':form})
+# 	else:
+# 		messages.success(request, "You Must Be Logged In...")
+# 		return redirect('home')
 
 def add_record(request):
-	form = AddRecordForm(request.POST or None)
-	if request.user.is_authenticated:
-		if request.method == "POST":
-			if form.is_valid():
-				add_record = form.save()
-				messages.success(request, "Record Added...")
-				return redirect('home')
-		return render(request, 'add_record.html', {'form':form})
-	else:
-		messages.success(request, "You Must Be Logged In...")
-		return redirect('home')
-      
+    form = AddRecordForm(request.POST or None)
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            if form.is_valid():
+                record = form.save(commit=False)
+                record.user = request.user  # Assign the logged-in user to the record
+                record.save()
+                messages.success(request, "Record Added Successfully.")
+                return redirect('home')
+        return render(request, 'adds_record.html', {'form': form})
+    else:
+         messages.error(request, "You must be logged in to add a record.")
+         return redirect('home')
+    
 def update_record(request, pk):
 	if request.user.is_authenticated:
 		current_record = Record.objects.get(id=pk)

@@ -8,7 +8,7 @@
 
 <form action="" method="POST">
     {% csrf_token %}
-    {% comment %} from error usubg django templates and bootstrap {% endcomment %}
+    {% comment %} from error us django templates and bootstrap {% endcomment %}
        {% if form.errors %}
 			<div class="alert alert-warning alert-dismissible fade show" role="alert">
 			  Your Form Has Errors
@@ -17,7 +17,7 @@
 			  		{{ field.errors }}
 			  	{% endif %}
 			  {% endfor %}
-			  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
 		{% endif %}
 

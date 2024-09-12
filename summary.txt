@@ -30,7 +30,7 @@ go to github -> use repo commands
 {allset..}
 
 push to git:
-git add .
+git add . or git add filename.py
 git commit -am 'you commit'
 git push
 '''
@@ -88,6 +88,11 @@ delete record button adding url -> views.py -> page
 9) Adding record
 urls.py->create html file-> create form in forms.html- > view.py -> page
 
+'''
+Got too much error because of creating user field in model because 
+i want to add feature of only user only can see record not to delete.
+ we did not use any user field before we are using only username and password functions
+'''
 10)Update record
 urls.py ->create html file-> views -> page
 
@@ -95,6 +100,9 @@ urls.py ->create html file-> views -> page
 
 all done! congratulation!!!
 
+Use sql queries in workbench 
+
 # Scaling project :
 
-1) Added delete alert option using bottstrap  
+1) Added delete alert option using bootstrap go to record.html 
+2) Added index numbering counting in front end and current ist time
